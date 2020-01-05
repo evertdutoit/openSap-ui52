@@ -1,0 +1,32 @@
+<mvc:View xmlns:core="sap.ui.core" 
+		  xmlns:mvc="sap.ui.core.mvc" 
+		  xmlns="sap.m" 
+		  controllerName="opensap.movies.controller.NotFound"
+		  xmlns:l="sap.ui.layout"
+		  xmlns:html="http://www.w3.org/1999/xhtml">
+	<!--<Page title="Bummer!"-->
+	<!--	showNavButton="true"-->
+	<!--	class="sapUiResponsiveContentPadding"-->
+	<!--	navButtonPress=".onNavBack">-->
+	<!--	<content>-->
+	<!--		<FlexBox wrap="Wrap">-->
+	<!--			<l:VerticalLayout>-->
+	<!--				<core:Icon src="sap-icon://video" -->
+	<!--						   tooltip="This movie has not been made yet"-->
+	<!--						   size="3rem"-->
+	<!--						   class="sapUiMediumMarginBottom" />-->
+	<!--				<Text text="This movie has not been made yet"-->
+	<!--					  class="sapUiMediumMarginBottom" />-->
+	<!--			</l:VerticalLayout>-->
+	<!--		</FlexBox>-->
+	<!--	</content>-->
+	<!--</Page>-->
+	<MessagePage title="Bummer!"
+				 icon="sap-icon://video"
+				 iconAlt="This movie has not been made yet"
+				 text="This movie has not been made yet"
+				 description="Come back soon..."
+				 showNavButton="true"
+				 navButtonPress=".onNavBack">
+	</MessagePage>
+</mvc:View>
