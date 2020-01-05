@@ -1,0 +1,145 @@
+<mvc:View controllerName="opensap.orders.controller.Info"
+	height="100%"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:uxap="sap.uxap"
+	xmlns:f="sap.f"
+	xmlns:l="sap.ui.layout"
+	xmlns:form="sap.ui.layout.form">
+
+	<uxap:ObjectPageLayout
+		id="objectPageLayout"
+		showTitleInHeaderContent="true"
+		alwaysShowContentHeader="false"
+		preserveHeaderStateOnScroll="false"
+		headerContentPinnable="true"
+		isChildPage="true"
+		enableLazyLoading="false">
+
+		<uxap:headerTitle>
+			<uxap:ObjectPageDynamicHeaderTitle>
+				<uxap:breadcrumbs>
+					<Breadcrumbs>
+						<Link text='{SalesOrderID}'/>
+						<Link text='{ItemPosition}'/>
+					</Breadcrumbs>
+				</uxap:breadcrumbs>
+				<uxap:expandedHeading>
+					<FlexBox wrap="Wrap"
+						fitContainer="true"
+						alignItems="Center">
+						<Title text="{ProductID}"
+							wrapping="true"
+						class="sapUiTinyMarginEnd sapUiTinyMarginTop"/>
+						<FlexBox wrap="NoWrap"
+							fitContainer="true"
+							alignItems="Center"
+							class="sapUiTinyMarginEnd">
+							<ObjectMarker type="Favorite"
+								class="sapUiTinyMarginEnd"/>
+							<ObjectMarker type="Flagged"/>
+						</FlexBox>
+					</FlexBox>
+				</uxap:expandedHeading>
+				<uxap:snappedHeading>
+					<FlexBox wrap="Wrap"
+						fitContainer="true"
+						alignItems="Center">
+						<FlexBox wrap="NoWrap"
+							fitContainer="true"
+							alignItems="Center"
+							class="sapUiTinyMarginEnd">
+							<f:Avatar
+								src="sap-icon://product"
+								displaySize="S"
+								class="sapUiTinyMarginEnd"/>
+							<Title text="{ProductID}"
+								wrapping="true"
+								class="sapUiTinyMarginEnd"/>
+						</FlexBox>
+						<FlexBox wrap="NoWrap"
+							fitContainer="true"
+							alignItems="Center"
+							class="sapUiTinyMarginEnd">
+							<ObjectMarker type="Favorite"
+									class="sapUiTinyMarginEnd"/>
+							<ObjectMarker type="Flagged"/>
+						</FlexBox>
+					</FlexBox>
+				</uxap:snappedHeading>
+				<uxap:expandedContent>
+					<Text text="{ToHeader/CustomerName}"/>
+				</uxap:expandedContent>
+				<uxap:snappedContent>
+					<Text text="{ToHeader/CustomerName}"/>
+				</uxap:snappedContent>
+			</uxap:ObjectPageDynamicHeaderTitle>
+		</uxap:headerTitle>
+
+		<uxap:headerContent>
+			<FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch">
+				<f:Avatar class="sapUiSmallMarginEnd sapUiSmallMarginTop"
+					src="sap-icon://product"
+					displaySize="L"/>
+
+				<l:VerticalLayout
+					class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+					<Label text="{i18n>infoItemDescription}"/>
+					<Text text="{ToHeader/Note}"/>
+				</l:VerticalLayout>
+				<l:VerticalLayout
+					class="sapUiSmallMarginEnd sapUiSmallMarginTop">
+					<Label text="{i18n>infoItemDescriptionLanguage}"/>
+					<Text text="{ToHeader/NoteLanguage}"/>
+				</l:VerticalLayout>
+			</FlexBox>
+		</uxap:headerContent>
+
+		<uxap:sections>
+			<uxap:ObjectPageSection title="{i18n>infoItemDetailsTitle}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<form:SimpleForm editable="false">
+								<Label text="Gross Price"/>
+								<ObjectNumber number="{GrossAmount}" unit="{CurrencyCode}" />
+								<Label text="Net Price"/>
+								<ObjectNumber number="{NetAmount}" unit="{CurrencyCode}" />
+								<Label text="Tax" />
+								<ObjectNumber number="{TaxAmount}" unit="{CurrencyCode}" />
+								<Label text="Quantity" />
+								<ObjectNumber number="{Quantity}" unit="{QuantityUnit}" />
+
+<!--<Property Name="CurrencyCode" Type="Edm.String" MaxLength="5" sap:label="Currency Code" sap:creatable="false" sap:updatable="false" sap:semantics="currency-code"/>-->
+<!--<Property Name="GrossAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:label="Gross Amount" sap:creatable="false" sap:updatable="false"/>-->
+<!--<Property Name="NetAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:label="Net Amount" sap:creatable="false" sap:updatable="false"/>-->
+<!--<Property Name="TaxAmount" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="CurrencyCode" sap:label="Tax Amount" sap:creatable="false" sap:updatable="false"/>-->
+<!--<Property Name="DeliveryDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:label="Time Stamp" sap:sortable="false" sap:filterable="false"/>-->
+<!--<Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unit="QuantityUnit" sap:label="Quantity" sap:sortable="false" sap:filterable="false"/>-->
+<!--<Property Name="QuantityUnit" Type="Edm.String" MaxLength="3" sap:label="Unit of Measure" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>-->
+
+
+							</form:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+			<uxap:ObjectPageSection title="{i18n>infoItemDeliveryTitle}">
+				<uxap:subSections>
+					<uxap:ObjectPageSubSection>
+						<uxap:blocks>
+							<form:SimpleForm editable="true">
+								<Label text="{i18n>infoItemDeliveryDateDescr}"/>
+								<DatePicker
+									dateValue="{DeliveryDate}"
+									displayFormat="long"
+									editable="false"/>
+							</form:SimpleForm>
+						</uxap:blocks>
+					</uxap:ObjectPageSubSection>
+				</uxap:subSections>
+			</uxap:ObjectPageSection>
+		</uxap:sections>
+	</uxap:ObjectPageLayout>
+
+</mvc:View>
